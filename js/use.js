@@ -1,6 +1,6 @@
 const numValues=2;
-let data = dataAll;//.slice(-100);
-const numBarsPrev = 50; //!!!дублируется в другую переменную исправить
+let data = dataAll.bars;//.slice(-100);
+const numBarsPrev = 500; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
 console.log('15min')
 pushToElemntsi(data);
@@ -33,7 +33,7 @@ loadModel();
 
 /////load moel
 async function loadModel(){
-  const model = await tf.loadLayersModel('savedmodels/21/my-model.json');
+  const model = await tf.loadLayersModel('savedmodels/22/my-model.json');
 
   addForecast();
   makeGraph();
@@ -78,7 +78,7 @@ function getHistoryBars(arr1, date, time){
       };
     };
     //console.log('forecast array', arr2);
-    console.log(date, time);
+    //console.log(date, time);
     console.log(arr2);
     return arr2;
 };
@@ -103,12 +103,25 @@ function cleanArray(arr1){
 //пронумеровали все элементы добавиви параметр counti, добавляем параметры barheight, shadowheight, vol
 function pushToElemntsi(arr){
   for(let i=0; i<arr.length; i++){
-    arr[i].time += ""; 
+    /*arr[i].time += ""; 
     arr[i].date +=  ""; 
     arr[i].barheight = arr[i].cp - arr[i].op;
     arr[i].heightVol = arr[i].barheight * arr[i].vol;
     arr[i].shadowHeight = arr[i].mp - arr[i].lp;
+    */
+
+        //arr[i].time += ""; 
+    //arr[i].date +=  ""; 
+    //arr[i].barheight = arr[i].cp - arr[i].op;
+    //arr[i].heightVol = arr[i].barheight * arr[i].vol;
+
+    arr[i].op = arr[i].open;
+    arr[i].mp = arr[i].high;
+    arr[i].lp = arr[i].low;
+    arr[i].cp = arr[i].close;
+    arr[i].barheight = arr[i].cp - arr[i].op;
   };
+  console.log(arr);
 };
 
 /**/

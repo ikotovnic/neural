@@ -1,7 +1,7 @@
-console.log('v.0.0.2');
+console.log('v.0.0.3');
 
 let arrHistory = [];
-const numBarsPrev = 50;
+const numBarsPrev = 500;
 const numValues=2;//количество значений в каждом баре
 let data;
 
