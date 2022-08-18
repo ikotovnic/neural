@@ -1,4 +1,4 @@
-console.log('v.0.0.5');
+console.log('v.0.0.6');
 
 let arrHistory = [];
 const numBarsPrev = 100;

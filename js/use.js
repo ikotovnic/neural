@@ -1,6 +1,6 @@
 const numValues=2;
 let data = dataAll.bars;//.slice(-100);
-const numBarsPrev = 500; //!!!дублируется в другую переменную исправить
+const numBarsPrev = 100; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
 console.log('15min')
 pushToElemntsi(data);
@@ -33,7 +33,7 @@ loadModel();
 
 /////load moel
 async function loadModel(){
-  const model = await tf.loadLayersModel('savedmodels/22/my-model.json');
+  const model = await tf.loadLayersModel('savedmodels/23/my-model.json');
 
   addForecast();
   makeGraph();

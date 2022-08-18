@@ -168,7 +168,7 @@ async function trainModel(model, inputs, labels) {
   });
   
   const batchSize = 2000000;
-  const epochs = 350;
+  const epochs = 175;
   
   return await model.fit(inputs, labels, {
     batchSize,
