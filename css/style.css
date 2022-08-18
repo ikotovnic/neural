@@ -1,0 +1,17 @@
+
+body{
+  background-color: #000000;
+  font-family: "Montserrat";
+}
+
+.data-fixpos{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-content: flex-start;
+ 
+  position: fixed;
+  left: 10px;
+  bottom: 0;
+  width: 300px;
+}
