@@ -94,8 +94,8 @@ function createModel() {
    model.add(tf.layers.dense({inputShape: [neuronsNum], units: neuronsNum, useBias: true, activation: 'relu'}));
    //model.add(tf.layers.dropout({rate:0.5}));
 
-  model.add(tf.layers.reshape({inputShape:[neuronsNum], targetShape:[50,2]}));
-  model.add(tf.layers.lstm({inputShape: [50, 2], units: neuronsNum, useBias: true, activation: 'relu', returnSequences: false}));
+  model.add(tf.layers.reshape({inputShape:[neuronsNum], targetShape:[100,2]}));
+  model.add(tf.layers.lstm({inputShape: [100, 2], units: neuronsNum, useBias: true, activation: 'relu', returnSequences: false}));
   //model.add(tf.layers.dense({units: 100, activation: 'relu', useBias: true}));
 
 
