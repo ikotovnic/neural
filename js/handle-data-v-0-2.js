@@ -1,11 +1,11 @@
-console.log('v.0.0.8');
+console.log('v.0.0.9');
 
 let arrHistory = [];
 const numBarsPrev = 100;
 const numValues=2;//количество значений в каждом баре
 let data;
 
-data = dataAll.bars.slice(-1500,-100);
+data = dataAll.bars.slice(-3000,-100);
 
 handleBars(data);
 handleBars(usdxdata);
