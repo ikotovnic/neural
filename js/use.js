@@ -1,5 +1,5 @@
 const numValues=2;
-let data = dataAll.slice(-2000,-500);
+let data = dataAll;//.slice(-100);
 const numBarsPrev = 50; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
 console.log('15min')
