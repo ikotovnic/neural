@@ -5,7 +5,7 @@ const numBarsPrev = 100;
 const numValues=2;//количество значений в каждом баре
 let data;
 
-data = dataAll.bars.slice(-3000,-100);
+data = dataAll.bars.slice(-3700,-500);
 
 handleBars(data);
 handleBars(usdxdata);

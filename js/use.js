@@ -1,8 +1,8 @@
 const numValues=2;
-let data = dataAll.bars;//.slice(-100);
+data = dataAll.bars.slice(-3700,-500);
 const numBarsPrev = 100; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
-console.log('15min')
+console.log('15min');
 pushToElemntsi(data);
 
 /*
@@ -33,7 +33,7 @@ loadModel();
 
 /////load moel
 async function loadModel(){
-  const model = await tf.loadLayersModel('savedmodels/23/my-model.json');
+  const model = await tf.loadLayersModel('savedmodels/31/my-model.json');
 
   addForecast();
   makeGraph();
@@ -45,7 +45,7 @@ async function loadModel(){
      //добавляем предсказание
     let n = data.length - 100;
     for (let i=n; i<data.length; i++){
-      let arrForecast = getHistoryBars(data, data[i].date, data[i].time);
+      let arrForecast = getHistoryBars(data, data[i].date, data[i].time, i);
       let arrClean = cleanArray(arrForecast);
       let a = testModel(model, arrClean);
       //console.log('a', a);
@@ -60,23 +60,21 @@ async function loadModel(){
 let numBarsUse = numBarsPrev; //проверить из файла handledata
 let neuronsNum = numBarsUse * numValues; //количество баров умножаем на количество значений в каждом баре
 
-function getHistoryBars(arr1, date, time){
+function getHistoryBars(arr1, date, time, i){
 
     let arr2=[];
-    for (let i=0; i<arr1.length; i++){
+    
 
-      if ( arr1[i].date===date && arr1[i].time===time ){
+      let firstI = i - numBarsUse;
 
-        let firstI = i - numBarsUse;
+      arr2[0] = {};
+      arr2[0].bars = [];
 
-        arr2[0] = {};
-        arr2[0].bars = [];
-
-        for (let j=firstI; j<i; j++){
-          arr2[0].bars.push( arr1[j] );
-        };
+      for (let j=firstI; j<i; j++){
+        arr2[0].bars.push( arr1[j] );
       };
-    };
+      
+    
     //console.log('forecast array', arr2);
     //console.log(date, time);
     console.log(arr2);
@@ -290,12 +288,12 @@ function getStat(arr){
 
 function simulateTradingSL(arr){
   let walletSumm = 0;
-  let stopLoss = 0.0015;
+  let stopLoss = 0.0025;
 
   let extremMax, extremMin;
 
   for (let i=0; i<arr.length; i++){
-    if ( (arr[i].forecast) && (arr[i+1]) ){
+    if ( (arr[i].forecast || arr[i].forecast == 0) && (arr[i+1]) ){
 
       extremMax = Math.abs(arr[i+1].mp - arr[i+1].op);
       extremMin = Math.abs(arr[i+1].lp - arr[i+1].op);
@@ -335,7 +333,7 @@ function simulateTradingSimple(arr){
 
 
   for (let i=0; i<arr.length; i++){
-    if ( (arr[i].forecast) && (arr[i+1]) ){
+    if ( (arr[i].forecast || arr[i].forecast == 0) && (arr[i+1]) ){
 
 
       if ( (arr[i].forecast[0]<arr[i].forecast[1]) && (arr[i+1].barheight > 0) ){

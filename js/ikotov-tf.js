@@ -94,8 +94,8 @@ function createModel() {
    model.add(tf.layers.dense({inputShape: [neuronsNum], units: neuronsNum, useBias: true, activation: 'relu'}));
    //model.add(tf.layers.dropout({rate:0.5}));
 
-  model.add(tf.layers.reshape({inputShape:[neuronsNum], targetShape:[100,2]}));
-  model.add(tf.layers.lstm({inputShape: [100, 2], units: neuronsNum, useBias: true, activation: 'relu', returnSequences: false}));
+  model.add(tf.layers.reshape({inputShape:[neuronsNum], targetShape:[numBarsPrev,2]}));
+  model.add(tf.layers.lstm({inputShape: [numBarsPrev, 2], units: neuronsNum, useBias: true, activation: 'relu', returnSequences: false}));
   //model.add(tf.layers.dense({units: 100, activation: 'relu', useBias: true}));
 
 
@@ -168,7 +168,7 @@ async function trainModel(model, inputs, labels) {
   });
   
   const batchSize = 2000000;
-  const epochs = 120;
+  const epochs = 200;
   
   return await model.fit(inputs, labels, {
     batchSize,
