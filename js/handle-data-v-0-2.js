@@ -1,11 +1,11 @@
-console.log('v.0.0.9');
+console.log('v.0.0.11');
 
 let arrHistory = [];
-const numBarsPrev = 100;
+const numBarsPrev = 75;
 const numValues=2;//количество значений в каждом баре
 let data;
 
-data = dataAll.bars.slice(-3700,-500);
+data = dataAll.bars.slice(-3500,-100);
 
 handleBars(data);
 handleBars(usdxdata);
@@ -176,7 +176,7 @@ let arrCleanTest=[];
 //let sliced = Math.round(arrSorted.length * 0.9); // переменная для разделения массива на обучение и предсказание
 //let rest = Math.round(arrSorted.length * 0.1);
 
-let sliceNum = 100;
+let sliceNum = 0;
 let sliced = arrClean.length - sliceNum; // переменная для разделения массива на обучение и предсказание
 
 arrCleanTrain = arrClean.slice(0, sliced); // берем данные для обучения

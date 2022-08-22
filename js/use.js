@@ -1,6 +1,6 @@
 const numValues=2;
-data = dataAll.bars.slice(-3700,-500);
-const numBarsPrev = 100; //!!!дублируется в другую переменную исправить
+data = dataAll.bars;//.slice(-3400,-1500);
+const numBarsPrev = 75; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
 console.log('15min');
 pushToElemntsi(data);
@@ -33,7 +33,7 @@ loadModel();
 
 /////load moel
 async function loadModel(){
-  const model = await tf.loadLayersModel('savedmodels/31/my-model.json');
+  const model = await tf.loadLayersModel('savedmodels/32/my-model.json');
 
   addForecast();
   makeGraph();
@@ -288,7 +288,7 @@ function getStat(arr){
 
 function simulateTradingSL(arr){
   let walletSumm = 0;
-  let stopLoss = 0.0025;
+  let stopLoss = 0.002;
 
   let extremMax, extremMin;
 
