@@ -1,5 +1,5 @@
 const numValues=2;
-data = dataAll.bars;//.slice(-3400,-1500);
+data = dataAll.bars.slice(-276);
 const numBarsPrev = 75; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
 console.log('15min');
@@ -33,7 +33,7 @@ loadModel();
 
 /////load moel
 async function loadModel(){
-  const model = await tf.loadLayersModel('savedmodels/32/my-model.json');
+  const model = await tf.loadLayersModel('savedmodels/31/my-model.json');
 
   addForecast();
   makeGraph();
