@@ -1,5 +1,5 @@
 const numValues=2;
-data = dataAll.bars;//.slice(-500,-76); // -276   slice(-500,-100) обязательно 2 числа 
+data = dataAll.bars.slice(-500,-176); // -276   slice(-500,-100) обязательно 2 числа 
 const numBarsPrev = 75; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
 console.log('15min');
