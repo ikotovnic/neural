@@ -5,7 +5,7 @@ const numBarsPrev = 75;
 const numValues=2;//количество значений в каждом баре
 let data;
 
-data = dataAll.bars;//.slice(-1500);//0-pyt 96-cht 192-sred 288-vt 384-pn 480-fullweek
+data = dataAll.bars.slice(-1500);//0-pyt 96-cht 192-sred 288-vt 384-pn 480-fullweek
 
 handleBars(data);
 handleBars(usdxdata);
