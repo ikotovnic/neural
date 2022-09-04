@@ -1,5 +1,5 @@
 const numValues=2;
-data = dataAll.bars.slice(-500,-176); // -276   slice(-500,-100) обязательно 2 числа 
+data = dataAll.bars;//.slice(-3500,-480); // -276   slice(-500,-100) обязательно 2 числа 0-pyt 96-cht 192-sred 288-vt 384-pn 480-fullweek
 const numBarsPrev = 75; //!!!дублируется в другую переменную исправить
 let barscount = numBarsPrev;
 console.log('15min');
@@ -43,7 +43,7 @@ async function loadModel(){
 
   function addForecast(){
      //добавляем предсказание
-    let n = data.length - 100;
+    let n = data.length - 480;
     for (let i=n; i<data.length; i++){
       let arrForecast = getHistoryBars(data, data[i].date, data[i].time, i);
       let arrClean = cleanArray(arrForecast);
@@ -288,7 +288,7 @@ function getStat(arr){
 
 function simulateTradingSL(arr){
   let walletSumm = 0;
-  let stopLoss = 0.002;
+  let stopLoss = 0.005;
 
   let extremMax, extremMin;
 
@@ -325,7 +325,7 @@ function simulateTradingSL(arr){
     };
   };
 
-  console.log('SL walletSumm=', walletSumm);
+  console.log('SL walletSumm=', walletSumm*amplitude);
 };
 
 function simulateTradingSimple(arr){
@@ -357,13 +357,8 @@ function simulateTradingSimple(arr){
     };
   };
 
-  console.log('simple walletSumm=', walletSumm);
+  console.log('simple walletSumm=', walletSumm*amplitude);
 };
 
 ///getstat
-
-
-
-
-
 
